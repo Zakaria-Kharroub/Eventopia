@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +18,20 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/home', function () {
+//     return view('home');
+// });
+
+// home
+Route::get('/',[HomeController::class, 'index'])->name('/');
+
+
+
+// auth
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+
+Route::post('/store', [AuthController::class, 'store'])->name('store');
+Route::post('/loginuser', [AuthController::class, 'loginUser'])->name('loginuser');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
