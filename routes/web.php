@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EvenementController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,4 +35,11 @@ Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/store', [AuthController::class, 'store'])->name('store');
 Route::post('/loginuser', [AuthController::class, 'loginUser'])->name('loginuser');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+
+// evenement
+Route::post('/ajouterevent', [EvenementController::class, 'ajouterEvent'])->name('ajouterevent');
+Route::delete('/deleteevent/{id}', [EvenementController::class, 'deleteEvent'])->name('deleteevent');
+
 

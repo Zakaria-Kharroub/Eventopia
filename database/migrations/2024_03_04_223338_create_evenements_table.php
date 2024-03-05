@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('evenements', function (Blueprint $table) {
             $table->id();
-            
+            $table->string('title');
+            $table->string('description');
+            $table->date('date');
+            $table->string('lieu');
+            $table->string('image')->nullable();
+            $table->integer('prix');
+            $table->integer('nbre_place');
+            $table->unsignedBigInteger('categorie_id');
+            $table->foreign('categorie_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }

@@ -40,7 +40,8 @@
                         <li><a class="dropdown-item" href="#">profile</a></li>
                         <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasRight" role="button" aria-controls="offcanvasRight">
                             gerer events
-                          </a></li>
+                            </a>
+                        </li>
 
                         <li><a href="{{route('logout')}}" class="dropdown-item" href="">Log out</a></li>
                     </ul>

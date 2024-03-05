@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use App\Models\Categorie;
+use App\Models\Evenement;
 
 class HomeController extends Controller
 {
@@ -12,8 +15,9 @@ class HomeController extends Controller
     public function index()
     {
         //
-
-        return view('home');
+        $categories = Categorie::all();
+        $events = Evenement::all();
+        return view('home', compact('categories', 'events'));
     }
 
     /**
