@@ -37,6 +37,7 @@ class EvenementController extends Controller
         $event ->prix =$request->input('prix');
         $event ->nbre_place =$request->input('nbre_place');
         $event ->categorie_id =$request->input('categorie_id');
+        $event ->user_id = auth()->user()->id;
         if($request->hasFile('image')){
             $image = $request->file('image');
             $name = time().'.'.$image->getClientOriginalExtension();

@@ -21,6 +21,8 @@ return new class extends Migration
             $table->integer('prix');
             $table->integer('nbre_place');
             $table->unsignedBigInteger('categorie_id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('categorie_id')->references('id')->on('categories');
             $table->timestamps();
         });

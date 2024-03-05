@@ -23,9 +23,7 @@
                         <p class="card-text">{{ $event->date }}</p>
                         <div class="d-flex">
 
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#autreModal{{$event->id}}">
-                                Ouvrir un autre Modal
-                            </button>
+                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#autreModal{{$event->id}}">voir</button>
 
 
 
@@ -57,7 +55,7 @@
                     </div>
                     <div class="modal-body">
 
-                       
+
                         <!-- Votre contenu ici -->
                     </div>
                     <div class="modal-footer">

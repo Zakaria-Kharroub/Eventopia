@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Categorie;
 use App\Models\Evenement;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -16,7 +17,7 @@ class HomeController extends Controller
     {
         //
         $categories = Categorie::all();
-        $events = Evenement::all();
+        $events = Evenement::where('user_id', Auth::id())->get();
         return view('home', compact('categories', 'events'));
     }
 
