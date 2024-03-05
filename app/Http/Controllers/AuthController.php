@@ -57,7 +57,7 @@ class AuthController extends Controller
     $user ->name =$request->input('name');
     $user ->email =$request->input('email');
     $user->password =bcrypt($request->input('password'));
-    $user->role_id=$request->input('role_id');
+    $user->role_id = 3;
     $user ->save();
     return redirect()->route('login');
 
