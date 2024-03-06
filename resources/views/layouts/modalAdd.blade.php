@@ -36,6 +36,12 @@
                 <label for="nbre_place" class="form-label">nbre place</label>
                     <input type="number" class="form-control" id="nbre_place" name="nbre_place"">
 
+                <label for="acceptation" class="form-label" >acceptation</label>
+                    <select class="form-select" id="acceptation" name="acceptation">
+                        <option value="automatique">automatique</option>
+                        <option value="manuelle">manuelle</option>
+                    </select>
+
                 <label for="image" class="form-label">image</label>
                     <input type="file" class="form-control" id="image" name="image"">
 
