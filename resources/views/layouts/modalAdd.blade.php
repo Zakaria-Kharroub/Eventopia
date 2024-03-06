@@ -25,7 +25,7 @@
                     <textarea class="form-control" id="description" name="description" rows="3"></textarea>
 
                 <label for="date" class="form-label">date</label>
-                    <input type="date" class="form-control" id="date" name="date"">
+                    <input type="date" class="form-control" id="date" name="date" min="{{date('Y-m-d')}}" >
 
                 <label for="lieu" class="form-label">lieu</label>
                     <input type="text" class="form-control" id="lieu" name="lieu"">

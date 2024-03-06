@@ -23,7 +23,7 @@ class EvenementController extends Controller
             'description' => 'required',
             'date' => 'required',
             'lieu' => 'required',
-            'image' => 'required|image|mimes:png,jpg,jpeg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:png,jpg,jpeg,gif,svg',
             'prix' => 'required',
             'nbre_place' => 'required',
             'categorie_id' => 'required'
@@ -36,8 +36,10 @@ class EvenementController extends Controller
         $event ->lieu =$request->input('lieu');
         $event ->prix =$request->input('prix');
         $event ->nbre_place =$request->input('nbre_place');
+
         $event ->categorie_id =$request->input('categorie_id');
         $event ->user_id = auth()->user()->id;
+        $event ->etat = 'attent';
         if($request->hasFile('image')){
             $image = $request->file('image');
             $name = time().'.'.$image->getClientOriginalExtension();
@@ -49,10 +51,50 @@ class EvenementController extends Controller
         return redirect()->back()->with('success', 'Event added successfully');
     }
 
+
+
+
     public function deleteEvent($id){
         $event = Evenement::find($id);
         $event->delete();
         return redirect()->back()->with('success', 'Event deleted successfully');
+    }
+
+
+
+
+    public function updateEvent(Request $request, $id){
+        $request ->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'date' => 'required',
+            'lieu' => 'required',
+            'image' => 'required|image|mimes:png,jpg,jpeg,gif,svg',
+            'prix' => 'required',
+            'nbre_place' => 'required',
+            'categorie_id' => 'required'
+        ]);
+
+        $event = Evenement::find($id);
+        $event ->title =$request->input('title');
+        $event ->description =$request->input('description');
+        $event ->date =$request->input('date');
+        $event ->lieu =$request->input('lieu');
+        $event ->prix =$request->input('prix');
+        $event ->nbre_place =$request->input('nbre_place');
+
+        $event ->categorie_id =$request->input('categorie_id');
+        $event ->user_id = auth()->user()->id;
+        $event ->etat = 'attent';
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $image->storeAs('public/images',$name);
+            $event->image = $name;
+        }
+        $event->save();
+
+        return redirect()->back()->with('success', 'Event updated successfully');
     }
     /**
      * Show the form for creating a new resource.

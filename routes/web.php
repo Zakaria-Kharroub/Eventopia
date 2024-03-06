@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EvenementController;
 use App\Http\Controllers\HomeController;
+use App\Models\Categorie;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,5 +43,33 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 // evenement
 Route::post('/ajouterevent', [EvenementController::class, 'ajouterEvent'])->name('ajouterevent');
 Route::delete('/deleteevent/{id}', [EvenementController::class, 'deleteEvent'])->name('deleteevent');
+Route::put('/updateevent/{id}', [EvenementController::class, 'updateEvent'])->name('updateevent');
+
+
+
+// ----------------admin----------------
+Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+// categorie
+Route::get('/categorie', [AdminController::class, 'getCategorie'])->name('categorie');
+Route::post('/ajoutercategorie', [AdminController::class, 'ajouterCategorie'])->name('ajoutercategorie');
+Route::put('/updatecategorie/{id}', [AdminController::class, 'updateCategorie'])->name('updatecategorie');
+Route::delete('/deletecategorie/{id}', [AdminController::class, 'deleteCategorie'])->name('deletecategorie');
+
+
+
+
+// evenement
+Route::get('/event', [AdminController::class, 'getEvenement'])->name('event');
+Route::put('/updateetat/{id}', [AdminController::class, 'updateEtat'])->name('updateetat');
+
+
+
+// users
+Route::get('userslist', [AdminController::class, 'getUsers'])->name('userslist');
+Route::put('/updaterole/{id}', [AdminController::class, 'updateRole'])->name('updaterole');
+
+
+
+
 
 

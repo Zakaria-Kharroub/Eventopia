@@ -23,11 +23,12 @@
                         <p class="card-text">{{ $event->date }}</p>
                         <div class="d-flex">
 
-                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#autreModal{{$event->id}}">voir</button>
+                            <button type="button" class="btn btn-primary btn-sm me-1" data-bs-toggle="modal" data-bs-target="#autreModal{{$event->id}}"><i class="fa-solid fa-eye"></i></button>
 
 
 
-                            <button class="btn btn-danger btn-sm ms-1">modifier</button>
+                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalUpdate{{$event->id}}"><i class="fa-solid fa-pen-to-square"></i></button>
+
                             <form action="{{ route('deleteevent', $event->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
@@ -45,29 +46,13 @@
 
         {{-- details modal --}}
 
-        <div class="modal fade" id="autreModal{{$event->id}}" data-bs-backdrop="false" tabindex="1" aria-labelledby="autreModalLabel" aria-hidden="true" style="z-index: 1000;">
-            <div class="modal-dialog modal-dialog-centered">
+        @if( auth()->user()->role_id == 2)
 
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="autreModalLabel">{{ $event->title }}</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
-                    </div>
-                    <div class="modal-body">
+            @include('layouts.modalDetail')
 
+            @include('layouts.modalUpdate')
 
-                        <!-- Votre contenu ici -->
-                    </div>
-                    <div class="modal-footer">
-                        <!-- Boutons ou actions supplémentaires ici -->
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                        <button type="button" class="btn btn-primary">Sauvegarder</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
+        @endif
 
         @endforeach
 
