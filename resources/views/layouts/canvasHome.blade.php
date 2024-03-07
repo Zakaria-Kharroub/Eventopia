@@ -35,7 +35,7 @@
                                 <button class="btn btn-danger btn-sm ms-1"><i class="fa-solid fa-trash"></i></button>
                             </form>
 
-                            <button type="button" class="btn btn-success btn-sm ms-1" data-bs-toggle="modal" data-bs-target="#exampleModal" ><i class="fa-solid fa-ticket"></i></button>
+                            <button type="button" class="btn btn-success btn-sm ms-1" data-bs-toggle="modal" data-bs-target="#exampleModal{{$event->id}}"><i class="fa-solid fa-ticket"></i></button>
 
                         </div>
                     </div>
@@ -54,47 +54,62 @@
 
             @include('layouts.modalUpdate')
 
+
+
+            <div class="modal fade" id="exampleModal{{$event->id}}" data-bs-backdrop="false"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">ajouter tickets</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+
+                    <form action="{{route('ajouterticket')}}" method="post">
+                        @csrf
+                    <div class="modal-body">
+                        <label for="quantite" class=" form-label">quantite</label>
+                            <input type="number" name="quantite" class="form-control" placeholder="quantite">
+
+                        <label  class=" form-label" for="prix">prix</label>
+                            <input type="number" name="prix" class="form-control" placeholder="prix">
+
+                        <label  class=" form-label" for="type">type</label>
+                        <select class="form-select form-select mb-3" aria-label="Large select example" name="type">
+                            <option value="vip">vip</option>
+                            <option value="standart">standart</option>
+                          </select>
+
+                          <input type="hidden" name="event_id" value="{{ $event->id }}">
+
+
+                    </div>
+                    <div class="modal-footer">
+                      <button type="submit" name='submit' class="btn btn-primary">ajouter</button>
+                    </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+
         @endif
+
+
+
+
+
+
 
         @endforeach
 
+
+
+
+
+
     </div>
   </div>
 
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">ajouter tickets</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-
-
-        <form action="{{route('ajouterticket')}}" method="post">
-            @csrf
-        <div class="modal-body">
-            <label for="quantite" class=" form-label">quantite</label>
-                <input type="number" name="quantite" class="form-control" placeholder="quantite">
-
-            <label  class=" form-label" for="prix">prix</label>
-                <input type="number" name="prix" class="form-control" placeholder="prix">
-
-            <label  class=" form-label" for="type">type</label>
-            <select class="form-select form-select mb-3" aria-label="Large select example" name="type">
-                <option value="vip">vip</option>
-                <option value="standart">standart</option>
-              </select>
-
-              <input type="hidden" name="event_id" value="{{ $event->id }}">
-
-
-        </div>
-        <div class="modal-footer">
-          <button type="submit" name='submit' class="btn btn-primary">ajouter</button>
-        </div>
-        </form>
-      </div>
-    </div>
-  </div>
 
 

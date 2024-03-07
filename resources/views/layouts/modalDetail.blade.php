@@ -17,14 +17,14 @@
                         <p><b>Localisation:</b> {{ $event->lieu }}</p>
 
                         <p><b>ticket disponibles</b></p>
-                        vip : {{$event->ticket}}
+                        <p><b>Tickets VIP disponibles :</b> {{ $event->tickets->where('type', 'vip')->sum('quantite') }}</p>
+                        <p><b>Tickets Normal disponibles :</b> {{ $event->tickets->where('type', 'standart')->sum('quantite') }}
 
+                        <p><b>Total des tickets disponibles :</b>
 
-
+                            {{$total = $event->tickets->where('type', 'standart')->sum('quantite') + $event->tickets->where('type', 'vip')->sum('quantite') }}
 
                         </p>
-
-
 
                         <p><b>Description:</b></p>
                         <p>{{ $event->description }}</p>

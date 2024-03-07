@@ -32,8 +32,7 @@ class EvenementController extends Controller
         $event ->description =$request->input('description');
         $event ->date =$request->input('date');
         $event ->lieu =$request->input('lieu');
-        // $event ->prix =$request->input('prix');
-        // $event ->nbre_place =$request->input('nbre_place');
+        
         $event-> acceptation=$request->input('acceptation');
 
         $event ->categorie_id =$request->input('categorie_id');
@@ -69,8 +68,7 @@ class EvenementController extends Controller
             'date' => 'required',
             'lieu' => 'required',
             'image' => 'required|image|mimes:png,jpg,jpeg,gif,svg',
-            // 'prix' => 'required',
-            // 'nbre_place' => 'required',
+
             'categorie_id' => 'required'
         ]);
 
@@ -79,8 +77,7 @@ class EvenementController extends Controller
         $event ->description =$request->input('description');
         $event ->date =$request->input('date');
         $event ->lieu =$request->input('lieu');
-        // $event ->prix =$request->input('prix');
-        // $event ->nbre_place =$request->input('nbre_place');
+
 
         $event ->categorie_id =$request->input('categorie_id');
         $event ->user_id = auth()->user()->id;

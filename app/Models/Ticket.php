@@ -18,13 +18,15 @@ class Ticket extends Model
         'event_id'
     ];
 
-   public function evenement(){
-        return $this->belongsTo('Evenement::class');
+    public function evenement(){
+        return $this->belongsTo(Evenement::class, 'event_id');
     }
 
     public function user(){
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
     }
 
-
+    public function reservations(){
+        return $this->hasMany(Reservation::class);
+    }
 }

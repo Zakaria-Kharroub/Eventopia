@@ -11,6 +11,7 @@ class TicketController extends Controller
 
     public function ajouterTicket(Request $request)
     {
+        // dd($request);
         $ticket = new Ticket();
         $ticket->prix=$request->input('prix');
         $ticket->quantite=$request->input('quantite');

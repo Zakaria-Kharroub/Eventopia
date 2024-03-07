@@ -23,6 +23,8 @@ class Evenement extends Model
         'categorie_id'
     ];
 
+    
+
     public function categorie(){
         return $this->belongsTo(Categorie::class);
     }
@@ -32,6 +34,10 @@ class Evenement extends Model
     }
 
     public function tickets(){
-        return $this->hasMany(Ticket::class);
+        return $this->hasMany(Ticket::class, 'event_id');
+    }
+
+    public function reservations(){
+        return $this->hasMany(Reservation::class);
     }
 }
