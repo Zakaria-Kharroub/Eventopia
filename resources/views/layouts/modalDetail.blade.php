@@ -15,7 +15,17 @@
                         <p><b>Date:</b> {{ $event->date }}</p>
                         <p><b>Prix:</b> {{ $event->prix}} DH</p>
                         <p><b>Localisation:</b> {{ $event->lieu }}</p>
-                        <p><b>Nombre de places:</b> {{ $event->nbre_place }} places</p>
+
+                        <p><b>ticket disponibles</b></p>
+                        vip : {{$event->ticket}}
+
+
+
+
+                        </p>
+
+
+
                         <p><b>Description:</b></p>
                         <p>{{ $event->description }}</p>
                     </div>
@@ -46,7 +56,7 @@
 }
 
 .modal-body {
-    padding: 20px; 
+    padding: 20px;
 }
 
 .modal-title {

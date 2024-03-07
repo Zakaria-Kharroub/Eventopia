@@ -30,11 +30,11 @@
                 <label for="lieu" class="form-label">lieu</label>
                     <input type="text" class="form-control" id="lieu" name="lieu"">
 
-                <label for="prix" class="form-label">prix</label>
-                    <input type="number" class="form-control" id="prix" name="prix"">
+                {{-- <label for="prix" class="form-label">prix</label>
+                    <input type="number" class="form-control" id="prix" name="prix""> --}}
 
-                <label for="nbre_place" class="form-label">nbre place</label>
-                    <input type="number" class="form-control" id="nbre_place" name="nbre_place"">
+                {{-- <label for="nbre_place" class="form-label">nbre place</label>
+                    <input type="number" class="form-control" id="nbre_place" name="nbre_place""> --}}
 
                 <label for="acceptation" class="form-label" >acceptation</label>
                     <select class="form-select" id="acceptation" name="acceptation">

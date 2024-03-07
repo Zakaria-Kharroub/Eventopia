@@ -83,7 +83,6 @@
                     <p class="ms-auto">{{$allevent->date}}</p>
                 </div>
                 <h6> {{$allevent->lieu}}</h6>
-                <p> {{$allevent->prix}} DH</p>
                 <p class="card-text"> {{$allevent->description}}</p>
             </div>
           </div>

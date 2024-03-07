@@ -23,11 +23,11 @@
                         <label for="lieu" class="form-label">lieu</label>
                         <input type="text" class="form-control" id="lieu" name="lieu" value="{{ $event->lieu }}">
 
-                        <label for="prix" class="form-label">prix</label>
-                        <input type="number" class="form-control" id="prix" name="prix" value="{{ $event->prix }}">
+                        {{-- <label for="prix" class="form-label">prix</label>
+                        <input type="number" class="form-control" id="prix" name="prix" value="{{ $event->prix }}"> --}}
 
-                        <label for="nbre_place" class="form-label">nbre place</label>
-                        <input type="number" class="form-control" id="nbre_place" name="nbre_place" value="{{ $event->nbre_place }}">
+                        {{-- <label for="nbre_place" class="form-label">nbre place</label>
+                        <input type="number" class="form-control" id="nbre_place" name="nbre_place" value="{{ $event->nbre_place }}"> --}}
 
                         <label for="image" class="form-label">image</label><br>
                         <img src="storage/images/{{ $event->image }}" class="h-25 w-25 mb-2 rounded" alt="...">
