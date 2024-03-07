@@ -7,7 +7,7 @@
 
 
     	<!-- carousel -->
-<div id="carouselExampleControls" class="carousel slide d-none d-md-flex" data-bs-ride="carousel">
+<div id="carouselExampleControls" class="carousel slide d-none d-md-flex mb-5" data-bs-ride="carousel">
 
     <div class="carousel-inner">
 
@@ -57,6 +57,64 @@
   <!-- end carousel -->
 
 
+  {{-- @foreach ($allevents as $allevent)
+
+  @endforeach --}}
+
+
+  <h1 class="text-center mt-5 mb-3">evenemets</h1>
+
+
+
+  <div class="container mt-5 mb-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+
+
+
+
+        @foreach ($allevents as $allevent)
+        <div class="col ">
+          <div class="card shadow p-3 mb-5 border-0" >
+            <img src="storage/images/{{$allevent->image}}" class="card-img-top " alt="..." style="height: 300px; width: 100%;" >
+            <div class="card-body">
+                <div class="d-flex">
+                    <h5 class="card-title">{{$allevent->title}}</h5>
+                    <p class="ms-auto">{{$allevent->date}}</p>
+                </div>
+                <h6> {{$allevent->lieu}}</h6>
+                <p> {{$allevent->prix}} DH</p>
+                <p class="card-text"> {{$allevent->description}}</p>
+            </div>
+          </div>
+        </div>
+        @endforeach
+
+
+
+      </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -69,6 +127,11 @@
     {{-- modal ajouter --}}
     @include('layouts.modalAdd')
   @endif
+
+
+
+
+
 
 
 <!-- bootstrap cdn -->
@@ -86,9 +149,12 @@
         });
     </script>
     @endif
-    
+
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 </html>
+
+
+

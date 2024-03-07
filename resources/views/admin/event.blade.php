@@ -77,21 +77,6 @@
 
 
 
-
-    {{-- let selectWikis = document.querySelectorAll('.select-etat-wiki');
-
-    selectWikis.forEach(function(selectWiki) {
-         if (selectWiki.value === 'oui') {
-            selectWiki.classList.add('bg-success');
-
-         }else{
-
-             selectWiki.classList.add('bg-danger');
-        }
-    }); --}}
-
-
-
     <script>
 
         let selectEvents = document.querySelectorAll('.select-etat-event');

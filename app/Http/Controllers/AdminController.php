@@ -45,8 +45,8 @@ class AdminController extends Controller
         $request->validate([
            'name' => 'required'
         ]);
-        $categorie=Categorie::find($id);
-            $categorie ->name = $request->input('name');
+        $categorie = Categorie::find($id);
+        $categorie->name = $request->input('name');
         $categorie->save();
         return redirect()->route('categorie');
     }

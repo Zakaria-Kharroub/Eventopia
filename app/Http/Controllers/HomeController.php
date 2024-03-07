@@ -18,7 +18,9 @@ class HomeController extends Controller
         //
         $categories = Categorie::all();
         $events = Evenement::where('user_id', Auth::id())->get();
-        return view('home', compact('categories', 'events'));
+
+        $allevents = Evenement::all();
+        return view('home', compact('categories', 'events', 'allevents'));
     }
 
     /**

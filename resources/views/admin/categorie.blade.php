@@ -40,52 +40,50 @@
 
                 <tbody>
 
-                    @foreach ( $categories as $categorie )
-                    <tr>
-                        <td>{{$categorie->id}}</td>
-                        <td>{{$categorie->name}}</td>
-
-
-                        <td class="d-flex">
-                            <button  type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#updateModal{{$categorie->id}}">update</button>
-                            <form action="deletecategorie/{{$categorie->id}}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">delete</button>
-                        </td>
-                    </tr>
-
-
-
-                    <!-- update modal -->
-                    <div class="modal fade" id="updateModal{{$categorie->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">update Categorie</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <form action="updatecategorie/{{$categorie->id}}" method="POST">
+                    @foreach ($categories as $categorie)
+                        <tr>
+                            <td>{{$categorie->id}}</td>
+                            <td>{{$categorie->name}}</td>
+                            <td class="d-flex">
+                                <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#updateModal{{$categorie->id}}">update</button>
+                                <form action="{{ route('deletecategorie', ['id' => $categorie->id]) }}" method="POST">
                                     @csrf
-                                    @method('PUT')
-                                    <div class="modal-body">
-                                        <input type="text" name="name"  class="form-control" placeholder="entrez le nom de categorie" value="{{$categorie->name}}">
-
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="submit" name='submit' class="btn btn-primary">enregistrer</button>
-                                    </div>
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">delete</button>
                                 </form>
-                            </div>
-                        </div>
+                            </td>
+                        </tr>
+
+
+
+
+
+
+                        
+<!-- update modal -->
+    <div class="modal fade" id="updateModal{{$categorie->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">update Categorie</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="{{ route('updatecategorie', ['id' => $categorie->id]) }}" method="POST">
+                    @csrf
+                    @method('PUT')
+                    <div class="modal-body">
+                        <input type="text" name="name" class="form-control" placeholder="entrez le nom de categorie" value="{{$categorie->name}}">
                     </div>
-                    @endforeach
+                    <div class="modal-footer">
+                        <button type="submit" name='submit' class="btn btn-primary">enregistrer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+@endforeach
 
-
-
-
-
-                </tbody>
+            </tbody>
             </table>
 
 

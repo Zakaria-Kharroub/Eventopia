@@ -52,7 +52,9 @@ Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 // categorie
 Route::get('/categorie', [AdminController::class, 'getCategorie'])->name('categorie');
 Route::post('/ajoutercategorie', [AdminController::class, 'ajouterCategorie'])->name('ajoutercategorie');
+
 Route::put('/updatecategorie/{id}', [AdminController::class, 'updateCategorie'])->name('updatecategorie');
+
 Route::delete('/deletecategorie/{id}', [AdminController::class, 'deleteCategorie'])->name('deletecategorie');
 
 
