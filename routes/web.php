@@ -8,6 +8,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\TicketController;
 use App\Models\Categorie;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +74,12 @@ Route::group(['middleware' => ['IsAdmin']], function () {
     Route::get('userslist', [AdminController::class, 'getUsers'])->name('userslist');
     Route::put('/updaterole/{id}', [AdminController::class, 'updateRole'])->name('updaterole');
 });
+
+
+Route::post('/submit-forgot',[PasswordController::class,'store'])->name('store.forgot.password');
+Route::get('/forgot',[PasswordController::class,'show'])->name('forget.password');
+Route::get('/password/reset/{token}', [PasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('/password/reset', [PasswordController::class, 'reset'])->name('password.update');
 
 
 
