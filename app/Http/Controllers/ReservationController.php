@@ -33,17 +33,12 @@ class ReservationController extends Controller
             return redirect()->back()->with('error', 'Ticket not found');
         }
 
-
         $evenement = Evenement::find($ticket->event_id);
         if ($evenement->acceptation === 'automatique') {
             $status = 'valider';
         } else {
             $status = 'attent';
         }
-
-
-
-
 
         $reservation = new Reservation();
         $reservation->ticket_id = $ticketId;
