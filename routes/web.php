@@ -51,6 +51,9 @@ Route::group(['middleware' => ['IsOrganisateur']], function () {
     Route::put('/updateevent/{id}', [EvenementController::class, 'updateEvent'])->name('updateevent');
     // ticket
     Route::post('/ajouterticket', [TicketController::class, 'ajouterTicket'])->name('ajouterticket');
+    // reservation
+    Route::get('/requestreservation',[ReservationController::class, 'requestReservation'])->name('requestreservation');
+    Route::put('/accepterReservation/{id}', [ReservationController::class, 'accepterReservation'])->name('accepterreservation');
 });
 
 

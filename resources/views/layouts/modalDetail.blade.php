@@ -13,10 +13,7 @@
                     </div>
                     <div class="col-md-6">
                         <p><b>Date:</b> {{ $event->date }}</p>
-                        <p><b>Prix:</b> {{ $event->prix}} DH</p>
                         <p><b>Localisation:</b> {{ $event->lieu }}</p>
-
-                        <p><b>ticket disponibles</b></p>
                         <p><b>VIP disponibles :</b> {{ $event->tickets->where('type', 'vip')->sum('quantite') }}</p>
                         <p><b>Standart disponibles :</b> {{ $event->tickets->where('type', 'standart')->sum('quantite') }}
 
@@ -37,16 +34,12 @@
                             <span class="badge bg-warning">{{ $event->etat }}</span>
                             @endif
 
-
-
+                            
                         </p>
 
 
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <!-- You can add footer content here if needed -->
             </div>
         </div>
     </div>

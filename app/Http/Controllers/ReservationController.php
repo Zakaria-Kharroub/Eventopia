@@ -52,4 +52,29 @@ class ReservationController extends Controller
         return redirect()->back()->with('success', 'Reservation added successfully');
     }
 
+
+     public function requestReservation(){
+        $userId = auth()->user()->id;
+        $reservations = Reservation::with('ticket.evenement')
+                        ->whereHas('ticket.evenement', function ($query) use ($userId) {
+                            $query->where('user_id', $userId);
+
+                            })
+
+                            ->where('status', 'attent')
+                            ->get();
+
+    return view('requestReservation', compact('reservations'));
+     }
+
+
+
+     public function accepterReservation($id){
+        $reservation = Reservation::find($id);
+        $reservation->status = 'valider';
+        $reservation->save();
+
+        return redirect()->back()->with('success', 'Reservation accepted successfully');
+     }
+
 }

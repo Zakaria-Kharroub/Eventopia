@@ -34,7 +34,9 @@
                                 '{{ $reservation->ticket->evenement->title }}',
                                 '{{ $reservation->status }}',
                                 '{{ auth()->user()->name }}',
-                                '{{ auth()->user()->email }}')"><i class="fa-solid fa-print">
+                                '{{$reservation->ticket->evenement->image}}',
+                                '{{ auth()->user()->email }}')">
+                                <i class="fa-solid fa-print">
                             </i> imprimer</button>
 
                             @endif
@@ -46,7 +48,7 @@
     </div>
 
     <script>
-    function printReservation(id, prix, type, evenement, status, userName, userEmail) {
+    function printReservation(id, prix, type, evenement, status, userName, image, userEmail) {
         var printContents = `
 
 <!DOCTYPE html>
@@ -54,6 +56,11 @@
 <head>
     <title>Billet de réservation</title>
     <style>
+        .img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -81,6 +88,8 @@
 <body>
     <div class="ticket">
         <h1>Monsieur ${userName}</h1>
+        <img src="storage/images/${image}" class="img" alt="evenement image">
+
         <p>Email: ${userEmail}</p>
         <p>reservation ID: ${id}</p>
         <p>evenement: ${evenement}</p>

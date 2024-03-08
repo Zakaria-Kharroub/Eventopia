@@ -84,7 +84,7 @@
                 <h6> {{$allevent->lieu}}</h6>
                 <div class="d-flex justify-content-center">
 
-                    <a href="" class="btn btn-primary mt-3" >voir <i class="fa-solid fa-eye"></i> </a>
+                    <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#staticBackdropdetailevent{{$allevent->id}}">voir <i class="fa-solid fa-eye"></i> </button>
                     {{-- button model reservation  --}}
                     <a href="" class="btn btn-danger mt-3 ms-3 " data-bs-toggle="modal" data-bs-target="#staticBackdropreserv{{$allevent->id}}">reserver <i class="fa-solid fa-ticket"></i> </a>
                 </div>
@@ -158,6 +158,40 @@
 
 
 
+  {{-- modal details evenement --}}
+
+  <div class="modal fade" id="staticBackdropdetailevent{{$allevent->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">{{$allevent->title}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <img src="storage/images/{{$allevent->image}}" class="img-fluid rounded-start" alt="Event Image">
+                    </div>
+                    <div class="col-md-6 d-flex flex-column p-4">
+                        <p>Date: <b> {{$allevent->date}}</b></p>
+                        <h4>Description</h4>
+
+                        <p>{{$allevent->description}}</p>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
 
 
         @endforeach
@@ -199,6 +233,8 @@
     {{-- modal ajouter --}}
     @include('layouts.modalAdd')
   @endif
+
+
 
 
 

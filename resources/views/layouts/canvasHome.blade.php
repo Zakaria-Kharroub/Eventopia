@@ -10,6 +10,11 @@
               </button>
         </div>
 
+
+            <a class="btn btn-success" href="{{ route('requestreservation') }}" class="btn btn-primary mt-3">request</a>
+
+
+
         <h3 class="text-center mt-3">mes evenements</h3>
         @foreach($events as $event)
         <div class="card mb-1" style="max-width: 800px;">
