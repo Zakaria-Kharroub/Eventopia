@@ -42,6 +42,7 @@
                             gerer events
                             </a>
                         </li>
+                        <li><a class="dropdown-item" href="{{route('myReservation')}}">mes reservation</a></li>
 
                         <li><a href="{{route('logout')}}" class="dropdown-item" href="">Log out</a></li>
                     </ul>
@@ -55,6 +56,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <li><a class="dropdown-item" href="#">profile</a></li>
+                        <li><a class="dropdown-item" href="{{route('myReservation')}}">mes reservation</a></li>
                         <li><a href="{{route('logout')}}" class="dropdown-item" href="">Log out</a></li>
                     </ul>
                 </div>

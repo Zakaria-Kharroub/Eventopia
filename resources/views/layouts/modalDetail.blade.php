@@ -17,10 +17,10 @@
                         <p><b>Localisation:</b> {{ $event->lieu }}</p>
 
                         <p><b>ticket disponibles</b></p>
-                        <p><b>Tickets VIP disponibles :</b> {{ $event->tickets->where('type', 'vip')->sum('quantite') }}</p>
-                        <p><b>Tickets Normal disponibles :</b> {{ $event->tickets->where('type', 'standart')->sum('quantite') }}
+                        <p><b>VIP disponibles :</b> {{ $event->tickets->where('type', 'vip')->sum('quantite') }}</p>
+                        <p><b>Standart disponibles :</b> {{ $event->tickets->where('type', 'standart')->sum('quantite') }}
 
-                        <p><b>Total des tickets disponibles :</b>
+                        <p><b>Total des ticket disponibles :</b>
 
                             {{$total = $event->tickets->where('type', 'standart')->sum('quantite') + $event->tickets->where('type', 'vip')->sum('quantite') }}
 
@@ -28,6 +28,20 @@
 
                         <p><b>Description:</b></p>
                         <p>{{ $event->description }}</p>
+
+                        <p><b>etat </b></p>
+                        <p>
+                           @if($event->etat =='accept')
+                            <span class="badge badge-lg bg-success">{{ $event->etat }}</span>
+                            @else
+                            <span class="badge bg-warning">{{ $event->etat }}</span>
+                            @endif
+
+
+
+                        </p>
+
+
                     </div>
                 </div>
             </div>

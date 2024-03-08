@@ -11,6 +11,17 @@ class ReservationController extends Controller
 {
     //
 
+
+
+
+    public function myReservation()
+    {
+        $reservations = Reservation::where('user_id', auth()->user()->id)->with('ticket')->get();
+        return view('myReservation', compact('reservations'));
+    }
+
+
+
     public function ajouterReservation(Request $request)
     {
         $ticketId = $request->input('ticket_id');

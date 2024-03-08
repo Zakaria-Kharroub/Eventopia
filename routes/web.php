@@ -42,46 +42,53 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 
-// evenement
-Route::post('/ajouterevent', [EvenementController::class, 'ajouterEvent'])->name('ajouterevent');
-Route::delete('/deleteevent/{id}', [EvenementController::class, 'deleteEvent'])->name('deleteevent');
-Route::put('/updateevent/{id}', [EvenementController::class, 'updateEvent'])->name('updateevent');
+
+// ----------- organisateur ------------
+Route::group(['middleware' => ['IsOrganisateur']], function () {
+    // evenement
+    Route::post('/ajouterevent', [EvenementController::class, 'ajouterEvent'])->name('ajouterevent');
+    Route::delete('/deleteevent/{id}', [EvenementController::class, 'deleteEvent'])->name('deleteevent');
+    Route::put('/updateevent/{id}', [EvenementController::class, 'updateEvent'])->name('updateevent');
+    // ticket
+    Route::post('/ajouterticket', [TicketController::class, 'ajouterTicket'])->name('ajouterticket');
+});
 
 
 
 // ----------------admin----------------
-Route::get('/admin', [AdminController::class, 'index'])->name('admin');
-// categorie
-Route::get('/categorie', [AdminController::class, 'getCategorie'])->name('categorie');
-Route::post('/ajoutercategorie', [AdminController::class, 'ajouterCategorie'])->name('ajoutercategorie');
-
-Route::put('/updatecategorie/{id}', [AdminController::class, 'updateCategorie'])->name('updatecategorie');
-
-Route::delete('/deletecategorie/{id}', [AdminController::class, 'deleteCategorie'])->name('deletecategorie');
-
-
-
-
-// evenement
-Route::get('/event', [AdminController::class, 'getEvenement'])->name('event');
-Route::put('/updateetat/{id}', [AdminController::class, 'updateEtat'])->name('updateetat');
-
-
-
-// users
-Route::get('userslist', [AdminController::class, 'getUsers'])->name('userslist');
-Route::put('/updaterole/{id}', [AdminController::class, 'updateRole'])->name('updaterole');
+Route::group(['middleware' => ['IsAdmin']], function () {
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+    // categorie
+    Route::get('/categorie', [AdminController::class, 'getCategorie'])->name('categorie');
+    Route::post('/ajoutercategorie', [AdminController::class, 'ajouterCategorie'])->name('ajoutercategorie');
+    Route::put('/updatecategorie/{id}', [AdminController::class, 'updateCategorie'])->name('updatecategorie');
+    Route::delete('/deletecategorie/{id}', [AdminController::class, 'deleteCategorie'])->name('deletecategorie');
+    // evenement
+    Route::get('/event', [AdminController::class, 'getEvenement'])->name('event');
+    Route::put('/updateetat/{id}', [AdminController::class, 'updateEtat'])->name('updateetat');
+    // users
+    Route::get('userslist', [AdminController::class, 'getUsers'])->name('userslist');
+    Route::put('/updaterole/{id}', [AdminController::class, 'updateRole'])->name('updaterole');
+});
 
 
 
 
-// ticket
-Route::post('/ajouterticket', [TicketController::class, 'ajouterTicket'])->name('ajouterticket');
+
+
+
+
+
+
+
+
 
 
 
 // reservation
-Route::post('/ajouterreservation', [ReservationController::class, 'ajouterReservation'])->name('ajouterreservation');
+Route::post('/ajouterreservation', [ReservationController::class, 'ajouterReservation'])->name('ajouterreservation')->middleware('IsAuth');
+
+Route::get('/myReservation', [ReservationController::class, 'myReservation'])->name('myReservation')->middleware('IsAuth');
 
 
 

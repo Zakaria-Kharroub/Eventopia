@@ -133,7 +133,9 @@
                         @endforeach
                     </select>
                 </div>
-                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                @auth
+                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                @endauth
                 <button type="submit" class="btn btn-primary">reserver ticket</button>
             </form>
             @endif
