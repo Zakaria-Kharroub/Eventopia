@@ -74,14 +74,19 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (auth()->attempt($credentials)) {
-            return redirect()->route('/');
+            $user = auth()->user();
+
+             if ($user->role_id == 1) {
+                return redirect()->route('admin');
+            } else {
+                return redirect()->route('/');
+            }
         }
         else{
             return redirect()->route('login');
         }
 
     }
-
     public function logout(){
         auth()->logout();
         return redirect()->route('/');

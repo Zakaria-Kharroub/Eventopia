@@ -27,12 +27,14 @@ class EvenementController extends Controller
             'categorie_id' => 'required'
         ]);
 
+
+
         $event = new Evenement();
         $event ->title =$request->input('title');
         $event ->description =$request->input('description');
         $event ->date =$request->input('date');
         $event ->lieu =$request->input('lieu');
-        
+
         $event-> acceptation=$request->input('acceptation');
 
         $event ->categorie_id =$request->input('categorie_id');
