@@ -27,6 +27,15 @@ class HomeController extends Controller
         return view('home', compact('categories', 'events', 'allevents'));
     }
 
+    public function search(Request $request)
+    {
+        $searchInput = $request->input('searchInput');
+        $events = Evenement::where('title', 'LIKE', '%' . $searchInput . '%')->get();
+        return response()->json(['events' => $events]);
+    }
+
+
+
     /**
      * Show the form for creating a new resource.
      */
