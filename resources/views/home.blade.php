@@ -62,6 +62,21 @@
   @endforeach --}}
 
 
+
+    <div class="d-flex justify-content-center mt-5 mb-5">
+        <form action="{{ route('filter') }}" method="GET" id="filterForm" class="d-flex w-25">
+            <select class="form-select" name="category" aria-label="Default select example">
+                <option value="">Select category</option>
+
+                @foreach ( $categories as $categorie )
+                    <option value="{{$categorie->id}}">{{$categorie->name}}</option>
+                @endforeach
+            </select>
+            <button type="submit" class="btn btn-primary">Filter</button>
+        </form>
+    </div>
+
+
   <h1 class="text-center mt-5 mb-3">evenemets</h1>
 
 
@@ -187,42 +202,11 @@
 </div>
 
 
-
-
-
-
-
-
-
         @endforeach
-
 
 
       </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -238,11 +222,6 @@
 
 
 
-
-
-
-
-{{-- script search0 --}}
 
 
 
@@ -276,7 +255,32 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                             </div>
                         </div>
-                    </div>`;
+                    </div>
+
+                    <!-- Modal details evenement -->
+                    <div class="modal fade " id="staticBackdropdetailevent${event.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">${event.title}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body ">
+                                    <div class="row g-0">
+                                        <div class="col-md-6">
+                                            <img src="storage/images/${event.image}" class="img-fluid rounded-start" alt="Event Image">
+                                        </div>
+                                        <div class="col-md-6 d-flex flex-column p-4">
+                                            <p>Date: <b> ${event.date}</b></p>
+                                            <h4>Description</h4>
+                                            <p>${event.description}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    `;
                     gloalEvent.innerHTML += html;
                 });
             }

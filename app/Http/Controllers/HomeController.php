@@ -20,9 +20,6 @@ class HomeController extends Controller
         //
         $categories = Categorie::all();
         $events = Evenement::with('tickets')->where('user_id', Auth::id())->get();
-
-
-
         $allevents = Evenement::where('etat','accept')->get();
         return view('home', compact('categories', 'events', 'allevents'));
     }
@@ -30,8 +27,33 @@ class HomeController extends Controller
     public function search(Request $request)
     {
         $searchInput = $request->input('searchInput');
-        $events = Evenement::where('title', 'LIKE', '%' . $searchInput . '%')->get();
+
+        $events = Evenement::where('title', 'LIKE', '%' . $searchInput . '%')
+        ->where('etat','accept')
+        ->get();
+
         return response()->json(['events' => $events]);
+    }
+
+
+
+
+
+
+
+
+    public function filterCategorie(Request $request)
+    {
+        $category_id = $request->input('category');
+
+        if ($category_id) {
+            $allevents = Evenement::where('categorie_id', $category_id)->where('etat','accept')->get();
+        } else {
+            $allevents = Evenement::where('etat','accept')->get();
+        }
+        $events = Evenement::with('tickets')->where('user_id', Auth::id())->get();
+        $categories = Categorie::all();
+        return view('home', compact('categories', 'allevents', 'events'));
     }
 
 

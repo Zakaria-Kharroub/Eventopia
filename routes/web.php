@@ -86,6 +86,8 @@ Route::post('/password/reset', [PasswordController::class, 'reset'])->name('pass
 // search
 
 Route::get('/search', [HomeController::class, 'search'])->name('search');
+Route::get('/filter', [HomeController::class, 'filterCategorie'])->name('filter');
+
 
 
 
