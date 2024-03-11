@@ -40,7 +40,6 @@
                                 <hr class="mt-5 mb-4 border-secondary-subtle">
                                 <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-between align-items-center">
                                     <a href="{{route('register')}}" class="link-secondary ">cree un compte</a>
-                                    <a href="{{route('forget.password')}}" class="link-secondary">password oublier</a>
                                 </div>
                             </div>
                         </div>

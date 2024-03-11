@@ -12,7 +12,7 @@
     <div class="carousel-inner">
 
       <div class="carousel-item active">
-          {{-- <img src="{{asset('images/carousel-2.jpg')}}" class="d-block w-100 " alt="..."> --}}
+          <img src="{{asset('images/carousel-2.jpg')}}" class="d-block w-100 " alt="...">
 
           <div class="carousel-caption" class="carousel-caption" style="text-shadow: 2px 2px 4px #000000;" >
               <h5>events um6p</h5>
@@ -23,7 +23,7 @@
 
 
       <div class="carousel-item">
-        {{-- <img src="{{asset('images/carousel-1.jpg')}}" class="d-block w-100 " alt="..."> --}}
+        <img src="{{asset('images/carousel-1.jpg')}}" class="d-block w-100 " alt="...">
         <div class="carousel-caption" class="carousel-caption" style="text-shadow: 2px 2px 4px #000000;" >
                <h5>events casa</h5>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, nulla, tempore. Deserunt excepturi quas vero.</p>
@@ -33,7 +33,7 @@
 
 
       <div class="carousel-item">
-        {{-- <img src="{{asset('images/carousel-3.jpg')}}" class="d-block w-100 " alt="..."> --}}
+        <img src="{{asset('images/carousel-3.jpg')}}" class="d-block w-100 " alt="...">
         <div class="carousel-caption" style="text-shadow: 2px 2px 4px #000000;" >
               <h5>events rabat</h5>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, nulla, tempore. Deserunt excepturi quas vero.</p>

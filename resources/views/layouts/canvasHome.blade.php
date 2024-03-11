@@ -6,12 +6,13 @@
 
         <div class="d-flex flex-column">
             <button type="button" class="btn btn-primary justify-content-center " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                ajouter events
-              </button>
+                ajouter evenement
+             </button>
+              <a class="btn btn-success justify-content-center mt-2" href="{{ route('requestreservation') }}">request reservations</a>
+
         </div>
 
 
-            <a class="btn btn-success" href="{{ route('requestreservation') }}" class="btn btn-primary mt-3">request</a>
 
 
 

@@ -42,14 +42,7 @@
                             </div>
                         </form>
 
-                        <div class="row">
-                            <div class="col-12">
-                                <hr class="mt-5 mb-4 border-secondary-subtle">
-                                <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-end ">
-                                    <a href="{{route('forget.password')}}" class="link-secondary">password oublier</a>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

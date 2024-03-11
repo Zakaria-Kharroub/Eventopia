@@ -7,7 +7,11 @@
 
 
 
-    <h2 class="mt-5 text-center">Request Reservation</h2>
+
+@if($reservations->count() == 0)
+<h2 class="mt-5 text-center">il n'y a pas de reservation</h2>
+@else
+<h2 class="mt-5 text-center">Request Reservation</h2>
 
     <table class="table container">
         <thead>
@@ -37,6 +41,7 @@
 
         </tbody>
       </table>
+@endif
 
 
 
