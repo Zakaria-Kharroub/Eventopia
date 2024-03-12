@@ -13,7 +13,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="mb-5">
-                                    <h3 class="text-center">Login to Your Account</h3>
+                                    <h3 class="text-center">reset password</h3>
                                 </div>
                             </div>
                         </div>
@@ -22,7 +22,7 @@
                             @csrf
                             <div class="row gy-3 gy-md-4 overflow-hidden">
                                 <div class="col-12">
-                                    <label for="email" class="form-label">Email Address</label>
+                                    <label for="email" class="form-label">Email</label>
                                     <input id="email" type="email" name="email" placeholder="Email Address" class="form-control bg-white border-left-0 border-md" required>
                                 </div>
                                 <div class="col-12">

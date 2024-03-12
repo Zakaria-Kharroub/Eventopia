@@ -211,6 +211,9 @@
 
 
 
+
+
+
   @if (Auth::check() && Auth::user()->role_id == 2)
   {{-- off canvas --}}
     @include('layouts.canvasHome')

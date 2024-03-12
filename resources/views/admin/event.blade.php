@@ -33,6 +33,7 @@
                 </thead>
 
                 <tbody>
+
                     @foreach ($evenements as $evenement)
                     <tr>
                         {{-- src="storage/images/{{ $event->image }}" --}}
@@ -55,7 +56,9 @@
                     </tr>
                 @endforeach
 
+
                 </tbody>
+
             </table>
 
 
@@ -64,6 +67,8 @@
 
         </div>
     </section>
+  
+
 
 
 

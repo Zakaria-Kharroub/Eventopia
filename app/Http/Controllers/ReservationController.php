@@ -16,7 +16,7 @@ class ReservationController extends Controller
 
     public function myReservation()
     {
-        $reservations = Reservation::where('user_id', auth()->user()->id)->with('ticket')->get();
+        $reservations = Reservation::where('user_id', auth()->user()->id)->with('ticket')->paginate(3);
         return view('myReservation', compact('reservations'));
     }
 
