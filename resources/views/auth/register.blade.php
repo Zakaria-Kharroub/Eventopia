@@ -108,17 +108,7 @@
             }
 
         }
-        function validateAll.addEventListener('click', function (e) {
-            e.preventDefault();
-            validateName();
-            validateEmail();
-            validatePassword();
-
-            if(!labelname.classList.contains('text-danger') && !labelEmail.classList.contains('text-danger') && !labelPassword.classList.contains('text-danger')){
-                btnRegister.click();
-            }
-                
-        });
+        
 
 
 

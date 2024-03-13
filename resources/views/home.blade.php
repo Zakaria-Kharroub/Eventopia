@@ -12,7 +12,7 @@
     <div class="carousel-inner">
 
       <div class="carousel-item active">
-          {{-- <img src="{{asset('images/carousel-2.jpg')}}" class="d-block w-100 " alt="..."> --}}
+           <img src="{{asset('images/carousel-2.jpg')}}" class="d-block w-100 " alt="...">
 
           <div class="carousel-caption" class="carousel-caption" style="text-shadow: 2px 2px 4px #000000;" >
               <h5>events um6p</h5>
@@ -23,7 +23,7 @@
 
 
       <div class="carousel-item">
-        {{-- <img src="{{asset('images/carousel-1.jpg')}}" class="d-block w-100 " alt="..."> --}}
+         <img src="{{asset('images/carousel-1.jpg')}}" class="d-block w-100 " alt="...">
         <div class="carousel-caption" class="carousel-caption" style="text-shadow: 2px 2px 4px #000000;" >
                <h5>events casa</h5>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, nulla, tempore. Deserunt excepturi quas vero.</p>
@@ -33,7 +33,7 @@
 
 
       <div class="carousel-item">
-        {{-- <img src="{{asset('images/carousel-3.jpg')}}" class="d-block w-100 " alt="..."> --}}
+         <img src="{{asset('images/carousel-3.jpg')}}" class="d-block w-100 " alt="..."> 
         <div class="carousel-caption" style="text-shadow: 2px 2px 4px #000000;" >
               <h5>events rabat</h5>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, nulla, tempore. Deserunt excepturi quas vero.</p>
@@ -82,7 +82,7 @@
 
 
   <div class="container mt-5 mb-5">
-    <div class="row row-cols-1 row-cols-md-3 g-4 " id="gloalEvent">
+    <div class="row row-cols-1 row-cols-md-3 g-4 " id="globalEvent">
 
 
 
@@ -231,7 +231,7 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('searchInput');
-    const gloalEvent = document.getElementById('gloalEvent');
+    const globalEvent = document.getElementById('globalEvent');
 
     searchInput.addEventListener('keyup', function() {
         const xhr = new XMLHttpRequest();
@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (this.status === 200) {
                 const data = JSON.parse(this.responseText);
                 console.log(data);
-                gloalEvent.innerHTML = '';
+                globalEvent.innerHTML = '';
                 data.events.forEach(event => {
                     const html = `
                     <div class="col ">
@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                     </div>
                     `;
-                    gloalEvent.innerHTML += html;
+                    globalEvent.innerHTML += html;
                 });
             }
         }
